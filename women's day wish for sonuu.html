@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Women's Day</title>
+
+<style>
+
+body{
+height:100vh;
+margin:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-family:Arial;
+background:#fff0f5;
+overflow:hidden;
+text-align:center;
+}
+
+#message{
+font-size:36px;
+margin-bottom:30px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+background:#ff4d6d;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.float{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:rise 6s linear forwards;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:0;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 id="message">Happy Women's Day Shona 🌷💕</h1>
+
+<button onclick="celebrate()">Click to Celebrate 🎉</button>
+
+<script>
+
+function celebrate(){
+
+document.getElementById("message").innerHTML =
+"Happy Women's Day Shona 🌷❤️<br><br>Thank you for always being there for me.<br>You stand for me even when no one is there.<br>You are always in my mind and heart 💖🥰<br>I'm lucky to have you 🌷💕";
+
+/* Floating hearts and flowers */
+
+for(let i=0;i<40;i++){
+
+let float=document.createElement("div");
+float.classList.add("float");
+
+float.innerHTML = Math.random()>0.5 ? "❤️" : "🌷";
+
+float.style.left = Math.random()*100 + "vw";
+float.style.fontSize = (20 + Math.random()*30) + "px";
+float.style.animationDuration = (4 + Math.random()*3) + "s";
+
+document.body.appendChild(float);
+
+setTimeout(()=>float.remove(),6000);
+
+}
+
+/* Confetti */
+
+for(let i=0;i<60;i++){
+
+const conf=document.createElement("div");
+conf.classList.add("confetti");
+
+conf.style.left=Math.random()*100+"vw";
+conf.style.backgroundColor=
+["#ff4d6d","#ffd93d","#6bcBef","#c77dff","#ff8fab"]
+[Math.floor(Math.random()*5)];
+
+document.body.appendChild(conf);
+
+setTimeout(()=>conf.remove(),3000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
